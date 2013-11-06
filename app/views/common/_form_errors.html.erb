@@ -1,0 +1,7 @@
+<% if object.errors.any? %>
+	<ul id="form-errors" style="border:1px solid">
+		<% object.errors.full_messages.each do |message| %>
+			<li> <%= message %></li>
+		<% end %>
+	</ul>
+<% end %>
