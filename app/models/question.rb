@@ -9,5 +9,10 @@ class Question < ActiveRecord::Base
   def self.unsolved(params)
   	where(solved: false).paginate(page: params[:page], order: 'created_at DESC',per_page: 3)
   end
-end
+
+  def self.search(params)
+  	where("body LIKE ?", "%#{params[:keyword]}%").paginate(page: params[:page], order: 'created_at DESC
+  		', per_page: 3)
+	end
+end	
 

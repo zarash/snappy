@@ -9,9 +9,17 @@ Snappy::Application.routes.draw do
   end 
 
   match '/register', to: 'users#new'
-  match '/login', to: 'sessions#new'
-  match '/logout', to: 'sessions#destroy', via: :delete
+  #match '/login', to: 'sessions#new'
+  #match '/logout', to: 'sessions#destroy', via: :delete
+
+  controller :sessions do
+    get 'login' => :new
+    #post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   match '/your_questions', to: 'questions#your_questions' 
+  match '/search', to: 'questions#search'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

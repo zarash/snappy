@@ -8,6 +8,17 @@
 	<%= @question.body  %>
 </p>
 
+<div id="answers">
+	<h2>Answers</h2>
+	<% if @question.answers.any? %>
+		<ul>
+			<%= render @question.answers %>
+		</ul>
+	<% else %>	
+		<p>This question has not been answered yet.</p>
+	<% end %>
+</div><!-- end answer -->  
+
 <div id="post-answer">
 	<h2>Answer this Question</h2>
 	
